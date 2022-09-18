@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BookListWidget</class>
+ <widget class="QWidget" name="BookListWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>50</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+    <string notr="true">#BookListWidget { background: white; border: 1px solid black; }</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout" stretch="1,0,0">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <widget name="title" class="QLabel" />
+   </item>
+   <item>
+    <widget name="favouriteButton" class="QPushButton">
+     <property name="text">
+      <string>Set as Favourite</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget name="openButton" class="QPushButton">
+     <property name="text">
+      <string>Open</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets/>
+ <resources/>
+ <connections/>
+</ui>

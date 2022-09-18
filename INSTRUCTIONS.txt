@@ -1,0 +1,71 @@
+=== Kobo Coding Test ===
+
+This zip file contains a Qt application that allows a user to read html files from a specific directory. It also allows them to select a book to be their "Favourite." However, this program has some bugs that you need to fix:
+
+Bug 1: If a first time user cancels the folder selection dialog, the program should close.
+Bug 2: Clicking on "Set as Favourite" won't clear the favourite status of the previous favourite book.
+Bug 3: "Open Favourite Book" does not work.
+Bug 4: Long books are scrolled to the bottom after opening. They should be scrolled to the top.
+Bug 5: Do not show "Open Favourite Book" button if there is no favourite book.
+
+BONUS:
+add any new features, or make any improvement other to this app
+
+TIP 1: Avoid calling BookManager::getBooks too often, since it will be slow for large libraries.
+TIP 2: You should email the solution to the first 5 bug fixes first, if you are planning to continue working on this app, make a note in the email.
+
+We have included a sample library in the directory "books" which you can use for testing. You should be able to compile the project without errors, however if you have issues let us know.
+
+=== Getting started with Qt ===
+
+Generally, you should be able to follow the instructions for your platform in this webpage: https://doc.qt.io/qt-5/gettingstarted.html
+
+=== On Windows ===
+
+Install visual studio community 2017 and qt:
+
+https://visualstudio.microsoft.com/vs/older-downloads/
+https://www.qt.io/offline-installers
+
+During installation of VSC 2019, choose "desktop c++ development."
+You can skip the Qt install asking for login by opening settings and setting your http proxy to "0.0.0.0:123"
+Select "MSVC 2017 64-bit" during Qt installation.
+
+=== On Mac OS ==
+
+Follow these instructions: https://doc.qt.io/qt-5/macos.html
+
+=== On Debian/Ubuntu ===
+
+You will need to install the default qt5 package:
+
+```
+sudo apt-get install build-essential qt5-default
+```
+
+Other linux distributions should have similar packages that supply qt5
+
+=== How to build ===
+
+===== On Windows =====
+Open reader.pro in Qt Creator. Make sure only "Desktop Qt 5.12.9 MSVC2017 64-bit" is checked and then click "configure project"
+
+You will be able to build and run the project in the "Build" dropdown.
+
+TIP: The settings.ini file for the program will be saved in the project's build folder, which will be in the directory below KoboCodingTest.
+
+===== On Mac/Linux =====
+You can also use Qt Creator on linux or mac. However, if you want to do everything from the command line you can do the following steps:
+
+In the root directory of this project, create a build directory and run qmake/make inside of it:
+
+```
+mkdir build
+cd build
+qmake ..
+make
+```
+
+Then you can run ./reader.
+
+TIP: You can enable debug mode by calling qmake with `qmake .. CONFIG+="debug"`

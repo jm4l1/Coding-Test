@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Reader</class>
+ <widget class="QWidget" name="Reader">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout" stretch="0,0,1">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="menuLayout" stretch="0,1">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget name="exitButton" class="QPushButton">
+       <property name="text">
+        <string>Exit</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget name="title" class="QLabel" />
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget name="divider" class="Line">
+     <property name="styleSheet">
+      <string notr="true">* { min-height: 1px; background: black; }</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget name="textEdit" class="QTextEdit" />
+   </item>
+  </layout>
+ </widget>
+ <customwidgets/>
+ <resources/>
+ <connections/>
+</ui>
