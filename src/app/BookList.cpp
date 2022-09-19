@@ -48,12 +48,15 @@ void BookList::updateUi()
 	{
 		m_books = BookManager::getBooks();
 	}
+	bool hasFavorite = false;
 	foreach (const Book& book, m_books) {
 		auto bookWidget = new BookListWidget(this);
 		bool isFavourite = (book.getPath() == settings.getFavouriteBookPath());
+		hasFavorite = hasFavorite || isFavourite;
 		bookWidget->setContent(book, isFavourite);
 		m_ui->bookLayout->addWidget(bookWidget);
 		connect(bookWidget, &BookListWidget::openBook, this, &BookList::openBook);
 		connect(bookWidget, &BookListWidget::favourited, this, &BookList::setFavourite);
 	}
+	m_ui->openFavouriteButton->setVisible(hasFavorite);
 }
