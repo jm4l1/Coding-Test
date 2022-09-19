@@ -11,6 +11,7 @@ Reader::Reader(QWidget* parent, const Book& book)
 	m_ui->title->setText(book.getTitle());
 	m_ui->textEdit->setReadOnly(true);
 	m_ui->textEdit->document()->setHtml(BookManager::getBookContents(book));
+	m_ui->textEdit->moveCursor(QTextCursor::Start);
 	connect(m_ui->exitButton, &QPushButton::clicked, this, &Reader::exit);
 }
 
