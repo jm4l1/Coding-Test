@@ -5,6 +5,7 @@ class Book
 {
 public:
 	Book();
+	Book(const QString& path, const QString& title);
 	virtual ~Book();
 
 	void setPath(const QString& path);

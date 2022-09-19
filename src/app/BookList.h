@@ -2,7 +2,8 @@
 #include <QWidget>
 #include <model/Book.h>
 
-namespace Ui {
+namespace Ui 
+{
 	class BookList;
 }
 

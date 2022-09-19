@@ -3,6 +3,11 @@
 Book::Book()
 {}
 
+Book::Book(const QString& path, const QString& title)
+: m_path(path)
+, m_title(title)
+{}
+
 Book::~Book()
 {}
 

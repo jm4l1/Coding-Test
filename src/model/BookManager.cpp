@@ -51,6 +51,9 @@ void BookManager::setFavouriteBook(const Book& book)
 
 Book BookManager::getFavouriteBook()
 {
-	//TODO: Need to get both the path and the title of the book.
-	return Book();
+	Settings settings;
+	QString booksDir = settings.getBooksPath();
+	QString favoriteBookPath = settings.getFavouriteBookPath();
+	QString favoriteBookTitle = settings.getFavouriteBookPath().remove(booksDir + "/");
+	return Book(favoriteBookPath,favoriteBookTitle );
 }
