@@ -22,6 +22,7 @@ private slots:
 
 	void setFavourite(const Book& book);
 	void openFavourite();
+	void setBookPath();
 
 signals:
 	void openBook(const Book& book);

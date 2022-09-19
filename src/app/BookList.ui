@@ -64,6 +64,13 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget name="bookPathButton" class="QPushButton">
+       <property name="text">
+        <string>Set Book Folder</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

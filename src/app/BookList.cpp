@@ -3,6 +3,9 @@
 #include "BookListWidget.h"
 #include <model/BookManager.h>
 #include <model/Settings.h>
+#include <QFileDialog>
+
+#include <QDebug>
 
 BookList::BookList(QWidget* parent)
 	: super(parent)
@@ -12,6 +15,7 @@ BookList::BookList(QWidget* parent)
 	refresh();
 	connect(m_ui->refreshButton, &QPushButton::clicked, this, &BookList::refresh);
 	connect(m_ui->openFavouriteButton, &QPushButton::clicked, this, &BookList::openFavourite);
+	connect(m_ui->bookPathButton, &QPushButton::clicked, this, &BookList::setBookPath);
 }
 
 BookList::~BookList()
@@ -59,4 +63,18 @@ void BookList::updateUi()
 		connect(bookWidget, &BookListWidget::favourited, this, &BookList::setFavourite);
 	}
 	m_ui->openFavouriteButton->setVisible(hasFavorite);
+}
+
+void BookList::setBookPath()
+{
+	Settings settings;
+	QString booksPath = QFileDialog::getExistingDirectory(nullptr,QLatin1String("Select your books directory."),QLatin1String("./"),QFileDialog::ShowDirsOnly);
+	if(booksPath.isEmpty())
+	{
+		return;
+	}
+	settings.setBooksPath(booksPath);
+	qDebug() << "Book search path updated:" << booksPath;
+	m_books.clear();
+	refresh();
 }
