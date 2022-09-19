@@ -15,7 +15,7 @@ Application::Application(int &argc, char** argv)
 	Settings settings;
 	QString booksPath = settings.getBooksPath();
 	if (booksPath.isNull()) {
-		QString dir = QFileDialog::getExistingDirectory(nullptr,QLatin1String("Select your books directory."),QLatin1String("./"),QFileDialog::ShowDirsOnly);
+		booksPath = QFileDialog::getExistingDirectory(nullptr,QLatin1String("Select your books directory."),QLatin1String("./"),QFileDialog::ShowDirsOnly | QFileDialog::DontUseNativeDialog);
 		if(booksPath.isEmpty())
 		{
 			QMessageBox missingDirectoryMessageBox(QMessageBox::Critical,QLatin1String("Book directory not chosen."),QLatin1String("No books directory chosen. Closing application."));
