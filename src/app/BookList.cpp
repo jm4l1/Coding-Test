@@ -24,9 +24,30 @@ void BookList::refresh()
 		child->widget()->deleteLater();
 		delete child;
 	}
+	updateUi();
+}
 
+void BookList::setFavourite(const Book& book)
+{
+	BookListWidget* widget = qobject_cast<BookListWidget*>(sender());
+	widget->setContent(book, true);
+	BookManager::setFavouriteBook(book);
+	refresh();
+}
+
+void BookList::openFavourite()
+{
+	auto book = BookManager::getFavouriteBook();
+	emit openBook(book);
+}
+
+void BookList::updateUi()
+{
 	Settings settings;
-	m_books = BookManager::getBooks();
+	if(m_books.empty())
+	{
+		m_books = BookManager::getBooks();
+	}
 	foreach (const Book& book, m_books) {
 		auto bookWidget = new BookListWidget(this);
 		bool isFavourite = (book.getPath() == settings.getFavouriteBookPath());
@@ -35,17 +56,4 @@ void BookList::refresh()
 		connect(bookWidget, &BookListWidget::openBook, this, &BookList::openBook);
 		connect(bookWidget, &BookListWidget::favourited, this, &BookList::setFavourite);
 	}
-}
-
-void BookList::setFavourite(const Book& book)
-{
-	BookListWidget* widget = qobject_cast<BookListWidget*>(sender());
-	widget->setContent(book, true);
-	BookManager::setFavouriteBook(book);
-}
-
-void BookList::openFavourite()
-{
-	auto book = BookManager::getFavouriteBook();
-	emit openBook(book);
 }

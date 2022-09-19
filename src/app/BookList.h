@@ -13,6 +13,9 @@ public:
 	BookList(QWidget* parent = nullptr);
 	virtual ~BookList();
 
+private:
+	void updateUi();
+	
 private slots:
 	void refresh();
 
